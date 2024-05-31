@@ -44,8 +44,10 @@ function receiveMoves(board, websocket) {
       case "init":
         // // Create link for inviting the second player.
         // Create links for inviting the second player and spectators.
-        document.querySelector(".join").href = "?join=" + event.join;
-        document.querySelector(".watch").href = "?watch=" + event.watch;
+        document.querySelector(".join").href =
+          "/websockets-tutorial/?join=" + event.join;
+        document.querySelector(".watch").href =
+          "/websockets-tutorial/?watch=" + event.watch;
         break;
       case "play":
         // Update the UI with the move.
@@ -84,7 +86,7 @@ function initGame(websocket) {
 }
 
 function getWebSocketServer() {
-  if (window.location.host === "project-DnCo.github.io") {
+  if (window.location.host === "project-dnco.github.io") {
     return "wss://websockets-intro-tutorial-138de2b20501.herokuapp.com/";
   } else if (window.location.host === "localhost:8000") {
     return "ws://localhost:8001/";
